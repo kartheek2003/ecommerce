@@ -6,6 +6,7 @@ ensure
 joblib
 yaml
 requests
+openpyxl
 
 
 

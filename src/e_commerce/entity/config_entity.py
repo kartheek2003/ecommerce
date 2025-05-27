@@ -6,4 +6,8 @@ class DataIngestionconfig:
   source_url : str
   local_data_file : Path
 
- 
+@dataclass 
+class PreProcessing:
+  data_path : Path
+  data_report : Path
+  cleaned_data_save_path :Path
