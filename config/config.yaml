@@ -9,3 +9,8 @@ pre_processing:
   data_path : artifacts/data_ingestion/online_retail.xlsx
   data_report : artifacts/data_report
   cleaned_data_save_path : artifacts/cleaned_data
+
+feature_engg:
+  data_path : artifacts/cleaned_data/pre_processed.csv 
+  output_path : artifacts/feature_engg
+  

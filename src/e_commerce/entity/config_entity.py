@@ -11,3 +11,9 @@ class PreProcessing:
   data_path : Path
   data_report : Path
   cleaned_data_save_path :Path
+
+@dataclass
+class FeatureEngineeringconfig:
+  data_path : Path 
+  output_path : Path
+  
