@@ -13,4 +13,7 @@ pre_processing:
 feature_engg:
   data_path : artifacts/cleaned_data/pre_processed.csv 
   output_path : artifacts/feature_engg
-  
+
+EDA : 
+  data_path : artifacts/feature_engg/rmf.csv
+  report : artifacts/EDA

@@ -1,6 +1,6 @@
 from e_commerce.utils.common import read_yaml , create_directories 
 from e_commerce.constants import *
-from e_commerce.entity.config_entity import DataIngestionconfig,PreProcessing,FeatureEngineeringconfig
+from e_commerce.entity.config_entity import DataIngestionconfig,PreProcessing,FeatureEngineeringconfig,EDA
 
 class ConfigurationManager:
     def __init__(self,config_file_path=CONFIG_FILE_PATH,
@@ -30,3 +30,10 @@ class ConfigurationManager:
         create_directories([config.output_path])
         feature_engg_config = FeatureEngineeringconfig(data_path=config.data_path,output_path=config.output_path)
         return feature_engg_config 
+    
+    def get_eda_config(self)->EDA:
+        config = self.config.EDA
+        create_directories([config.report])
+        eda_config = EDA(data_path=config.data_path,report=config.report)
+
+        return eda_config

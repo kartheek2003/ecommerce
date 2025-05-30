@@ -17,3 +17,10 @@ class FeatureEngineeringconfig:
   data_path : Path 
   output_path : Path
   
+
+@dataclass
+class EDA:
+  data_path : Path
+  report : Path
+
+  
