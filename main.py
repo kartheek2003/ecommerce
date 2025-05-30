@@ -5,6 +5,7 @@ from e_commerce.pipeline.stage01_data_ingestion import DataIngestionPipeline
 from e_commerce.pipeline.stage02_pre_processing import PreProcessingPipeline
 from e_commerce.pipeline.stage03_feature_engg_pipeline import FeatureEnggPipeline
 from e_commerce.pipeline.stage04_EDA import EDAPipeline
+print("Starting main.py execution from the top")
 
 STAGE_NAME ="DATA INGESTION"
 

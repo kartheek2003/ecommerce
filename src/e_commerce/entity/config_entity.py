@@ -23,4 +23,9 @@ class EDA:
   data_path : Path
   report : Path
 
+@dataclass
+class outlier :
+  data_path : Path
+  output_path: Path
+  report : Path
   

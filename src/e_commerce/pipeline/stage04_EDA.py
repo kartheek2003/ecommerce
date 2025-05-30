@@ -14,10 +14,11 @@ class EDAPipeline:
 
 
 STAGE_NAME = "EDA"
-try :
-    logger.info(f">>>>{STAGE_NAME} STARTED<<<<")
-    obj = EDAPipeline()
-    obj.main()
-    logger.info(f">>>>{STAGE_NAME} COMPLETED<<<<")
-except Exception as e:
-    raise e
+if __name__ == "__main__":
+    try :
+        logger.info(f">>>>{STAGE_NAME} STARTED<<<<")
+        obj = EDAPipeline()
+        obj.main()
+        logger.info(f">>>>{STAGE_NAME} COMPLETED<<<<")
+    except Exception as e:
+        raise e

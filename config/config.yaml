@@ -17,3 +17,9 @@ feature_engg:
 EDA : 
   data_path : artifacts/feature_engg/rmf.csv
   report : artifacts/EDA
+
+outlier:
+  data_path : artifacts/feature_engg/rmf.csv
+  output_path: artifacts/outlier
+  report : artifacts/outlier/report
+  
