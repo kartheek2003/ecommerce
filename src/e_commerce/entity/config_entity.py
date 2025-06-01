@@ -39,7 +39,14 @@ class cluster :
 @dataclass
 class model : 
   data_path : Path
+  original_data : Path
   kl_path : Path
   models : Path
   report : Path
   random_state : int
+
+@dataclass
+class prediction:
+  model_path : Path
+  scaler_path : Path
+  

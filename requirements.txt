@@ -10,5 +10,6 @@ openpyxl
 seaborn
 matplotlib
 kneed
+flask
 
 -e . 

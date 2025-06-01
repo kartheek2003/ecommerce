@@ -21,6 +21,7 @@ class OutlierComponent:
     def outlier_removal(self):
         df = self.load_data()
         rmf = df.drop(["CustomerID"],axis=1)
+        
         for col in rmf.columns:
             q1 = rmf[col].quantile(0.25)
             q3 = rmf[col].quantile(0.75)

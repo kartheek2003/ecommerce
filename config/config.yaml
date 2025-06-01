@@ -30,8 +30,12 @@ cluster :
 
 model:
   data_path : artifacts/cluster/rmf_scaled.csv
+  original_data : artifacts/outlier/rmf_final.csv
   kl_path : artifacts/cluster/kneelocator.pkl
   models : artifacts/models
   report : artifacts/models/report
 
+prediction :
+  model_path : artifacts/models/km_model.pkl
+  scaler_path : artifacts/cluster/scaler.pkl
 

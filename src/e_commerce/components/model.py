@@ -6,28 +6,33 @@ from sklearn.cluster import KMeans
 from kneed import KneeLocator
 from e_commerce.entity.config_entity import model
 import os 
+from pathlib import Path
 
 class ModelBuildingComponent:
     def __init__(self,config:model):
         self.config = config
     
-    def load_data(self):
-        if not os.path.exists(self.config.data_path):
-            raise FileNotFoundError(f"file not found at {self.config.data_path}")
-        return pd.read_csv(self.config.data_path)
+    def load_data(self,data_path : Path):
+        if not os.path.exists(data_path):
+            raise FileNotFoundError(f"file not found at {data_path}")
+        return pd.read_csv(data_path)
     
 
     def build_model(self):
-        rmf_scaled = self.load_data()
+        rmf = self.load_data(data_path=self.config.original_data)
+        rmf_scaled = self.load_data(data_path=self.config.data_path)
+        
         # model building
         kl = joblib.load(self.config.kl_path)
 
         km_model = KMeans(n_clusters=kl.elbow,random_state=self.config.random_state)
+        km_model.fit(rmf_scaled)
         joblib.dump(km_model,os.path.join(self.config.models,'km_model.pkl'))
 
-        y_predicted = km_model.fit_predict(rmf_scaled)
+        y_predicted = km_model.predict(rmf_scaled)
 
         rmf_scaled['cluster'] = y_predicted
+        rmf['cluster'] = y_predicted
 
         final_op_rmf = rmf_scaled
 
@@ -58,8 +63,8 @@ class ModelBuildingComponent:
         plt.clf()
 
         # Compute the average RFM values for each cluster
-        cluster_profile = final_op_rmf.groupby('cluster')[['recency', 'frequency', 'monetary']].mean().round(1)
-        with open("cluster_profile_report.txt", "w") as f:
+        cluster_profile = rmf.groupby('cluster')[['recency', 'frequency', 'monetary']].mean().round(1)
+        with open(os.path.join(self.config.report,"cluster_profile_report.txt"), "w") as f:
             f.write("Cluster Profile Report (Mean RFM Values):\n\n")
             f.write(cluster_profile.to_string())
 
@@ -91,5 +96,3 @@ class ModelBuildingComponent:
         plt.grid(True)
         plt.savefig(os.path.join(self.config.report,'segmentation_Cluster.png'))
         plt.clf()
-        
-        

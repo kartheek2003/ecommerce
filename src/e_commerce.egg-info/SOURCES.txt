@@ -7,9 +7,13 @@ src/e_commerce.egg-info/dependency_links.txt
 src/e_commerce.egg-info/top_level.txt
 src/e_commerce/components/EDA.py
 src/e_commerce/components/__init__.py
+src/e_commerce/components/cluster.py
 src/e_commerce/components/data_ingestion.py
 src/e_commerce/components/feature_engg.py
+src/e_commerce/components/model.py
+src/e_commerce/components/outlier_removal.py
 src/e_commerce/components/pre_processing.py
+src/e_commerce/components/predictor.py
 src/e_commerce/config/__init__.py
 src/e_commerce/config/configuration.py
 src/e_commerce/constants/__init__.py
@@ -19,5 +23,9 @@ src/e_commerce/pipeline/__init__.py
 src/e_commerce/pipeline/stage01_data_ingestion.py
 src/e_commerce/pipeline/stage02_pre_processing.py
 src/e_commerce/pipeline/stage03_feature_engg_pipeline.py
+src/e_commerce/pipeline/stage04_EDA.py
+src/e_commerce/pipeline/stage05_outlier.py
+src/e_commerce/pipeline/stage06_cluster.py
+src/e_commerce/pipeline/stage07_model.py
 src/e_commerce/utils/__init__.py
 src/e_commerce/utils/common.py
