@@ -23,3 +23,15 @@ outlier:
   output_path: artifacts/outlier
   report : artifacts/outlier/report
   
+cluster :
+  data_path : artifacts/outlier/rmf_final.csv
+  cluster : artifacts/cluster
+  report : artifacts/cluster/report 
+
+model:
+  data_path : artifacts/cluster/rmf_scaled.csv
+  kl_path : artifacts/cluster/kneelocator.pkl
+  models : artifacts/models
+  report : artifacts/models/report
+
+

@@ -1,6 +1,6 @@
 from e_commerce.utils.common import read_yaml , create_directories 
 from e_commerce.constants import *
-from e_commerce.entity.config_entity import DataIngestionconfig,PreProcessing,FeatureEngineeringconfig,EDA,outlier
+from e_commerce.entity.config_entity import DataIngestionconfig,PreProcessing,FeatureEngineeringconfig,EDA,outlier,cluster,model
 
 class ConfigurationManager:
     def __init__(self,config_file_path=CONFIG_FILE_PATH,
@@ -44,4 +44,17 @@ class ConfigurationManager:
         create_directories([config.report])
         outlier_config = outlier(data_path=config.data_path,output_path=config.output_path,report=config.report)
         return outlier_config
-    
+    def cluster_config(self)->cluster:
+        config = self.config.cluster
+        params = self.params.cluster
+        create_directories([config.cluster])
+        create_directories([config.report])
+        cluster_config = cluster(data_path=config.data_path,cluster=config.cluster,report=config.report,random_state= params.random_state)
+        return cluster_config
+    def get_model_config(self)->model:
+        config = self.config.model
+        params = self.params.model
+        create_directories([config.models])
+        create_directories([config.report])
+        model_config = model(data_path=config.data_path,kl_path=config.kl_path,models=config.models,report=config.report,random_state=params.random_state)
+        return model_config

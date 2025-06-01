@@ -1,3 +1,5 @@
-model:
-  n_clusters: 3
-  random_state: 42
+cluster :
+  random_state : 42
+
+model :
+  random_state : 42

@@ -6,6 +6,8 @@ from e_commerce.pipeline.stage02_pre_processing import PreProcessingPipeline
 from e_commerce.pipeline.stage03_feature_engg_pipeline import FeatureEnggPipeline
 from e_commerce.pipeline.stage04_EDA import EDAPipeline
 from e_commerce.pipeline.stage05_outlier import OutierPipeline
+from e_commerce.pipeline.stage06_cluster import ClusterPipeline
+from e_commerce.pipeline.stage07_model import ModelPipeline
 
 print("Starting main.py execution from the top")
 
@@ -58,5 +60,26 @@ try:
     obj = OutierPipeline()
     obj.main()
     logger.info(f">>>>{STAGE_NAME}completed<<<<")
+except Exception as e:
+    raise e
+
+STAGE_NAME = "CLUSTER FINDING" 
+
+try :
+    logger.info(f">>>>{STAGE_NAME} started<<<<")
+    obj = ClusterPipeline()
+    obj.main()
+    logger.info(f">>>>{STAGE_NAME} completed<<<<")
+
+except Exception as e:
+    raise e
+
+STAGE_NAME = "MODEL BUILDING"
+
+try :
+    logger.info(f">>>>{STAGE_NAME} started<<<<")
+    obj = ModelPipeline()
+    obj.main()
+    logger.info(f">>>>{STAGE_NAME} completed<<<<")
 except Exception as e:
     raise e

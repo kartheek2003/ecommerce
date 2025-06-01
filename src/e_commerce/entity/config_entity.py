@@ -29,3 +29,17 @@ class outlier :
   output_path: Path
   report : Path
   
+@dataclass
+class cluster :
+  data_path : Path
+  cluster : Path
+  report : Path
+  random_state : int
+
+@dataclass
+class model : 
+  data_path : Path
+  kl_path : Path
+  models : Path
+  report : Path
+  random_state : int
