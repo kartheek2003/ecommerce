@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request
 import pandas as pd
+import os
 from e_commerce.config.configuration import ConfigurationManager
 from e_commerce.components.predictor import PredictionComponent
 
 app = Flask(__name__)
 
-@app.route('/',methods = ['GET','POST'])
 
+@app.route("/train", methods=['GET','POST'])
+def trainRoute():
+    os.system("python main.py")
+    return "Training done successfully!"
+
+@app.route('/',methods = ['GET','POST'])
 def index():
     if request.method == 'POST':
         try:
