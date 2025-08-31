@@ -69,7 +69,7 @@ Input these values into the app’s prediction form or API endpoint to see if it
 ###  Project Demo
 | Interface | Prediction High Value | Prediction At Risk | Prediction potential loyalists |
 |-----------|-------------------|-----------------------|--------------------|
-| ![Homepage](webimages/homepage_cc.png) | ![Prediction](webimages/prediction_hv.png) | ![Prediction](webimages/prediction_ar.png) | ![Prediction](webimages/prediction_pl.png) |
+| ![Homepage](images/homepage_cc.png) | ![Prediction](images/prediction_hv.png) | ![Prediction](images/prediction_ar.png) | ![Prediction](images/prediction_pl.png) |
 
 ---
 ###  How to Run Locally
